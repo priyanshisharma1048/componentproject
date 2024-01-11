@@ -7,7 +7,7 @@ function Form() {
     lastName: "",
     age: "",
     designation: "",
-    id:" "
+    id: ""
   });
 
   function handleOnchange(event) {
@@ -24,19 +24,30 @@ function Form() {
       localStorage.setItem("data", JSON.stringify([]));
     }
     if (localStorage.getItem("lastid") === null) {
-      localStorage.setItem("lastid", 0);
+      localStorage.setItem("lastid", "0");
     }
-    const update="id";
-    const updatevalue= localStorage.getItem("lastid")+1;
-    localStorage.setItem("lastid",updatevalue);
-    const updateobject={...users,[update]:updatevalue,};
-   
-    
+
+    const lastId = parseInt(localStorage.getItem("lastid"));
+    const newId = lastId + 1;
+
+    const updateobject = {
+      ...users,
+      id: newId.toString(),
+    };
+
     const array = localStorage.getItem("data");
     const existingArray = array ? JSON.parse(array) : [];
     const newArray = [...existingArray, updateobject];
     localStorage.setItem("data", JSON.stringify(newArray));
-    setUsers({ id:" ",firstName: "", lastName: "", age: "", designation: "" ,id:""});
+    localStorage.setItem("lastid", newId.toString());
+
+    setUsers({
+      id: "",
+      firstName: "",
+      lastName: "",
+      age: "",
+      designation: ""
+    });
   }
 
   return (
@@ -73,7 +84,7 @@ function Form() {
       </label>
       <hr />
       <label>
-        designation:{" "}
+        Designation:{" "}
         <input
           name="designation"
           value={users.designation}
