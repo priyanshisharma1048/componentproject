@@ -1,25 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
-
+import React from 'react';
+import Welcome from './Welcome';
+import UserInfo from './Userinfo';
 function App() {
+  const user = { name: 'John Doe',age:"18" ,avatar:"https://cdn.pixabay.com/photo/2015/09/16/08/55/online-942408_960_720.jpg"};
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Welcome name={user.name} />
+      <UserInfo user={user} />
     </div>
   );
 }
+
+
 
 export default App;

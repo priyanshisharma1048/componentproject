@@ -21,11 +21,11 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color:hotpink;
 }
 
 .App-link {
-  color: #61dafb;
+  color:black;
 }
 
 @keyframes App-logo-spin {
@@ -35,4 +35,33 @@
   to {
     transform: rotate(360deg);
   }
+}
+.image{
+  height: 50px;
+  width:50px;
+}
+/* Table.css */
+
+.table-container {
+  margin: 20px; /* Add margin for spacing */
+}
+
+table {
+  width: 20px;;
+  border-collapse: collapse;
+}
+
+th, td {
+  border: 1px solid hotpink;
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+/* Optional: Add hover effect on table rows */
+tbody tr:hover {
+  background-color: lightgreen;
 }
